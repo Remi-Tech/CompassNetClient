@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Compass.Net.Client</RootNamespace>
+    <PackageId>Compass.Client</PackageId>
+    <Authors>The Remi Group</Authors>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <Owners>Andrew Duncan, Scott Malinoski</Owners>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <Summary>Client for connecting to Compass</Summary>
+    <PackageTags>Compass</PackageTags>
+    <Title>Compass.Client</Title>
+    <Description>Client for connecting to Compass.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Company>The Remi Group</Company>
+    <Version>1.0.4</Version>
+    <AssemblyVersion>1.0.4</AssemblyVersion>
+    <FileVersion>1.0.4</FileVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\Entity.cs" />
+  </ItemGroup>
+</Project>
