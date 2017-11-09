@@ -22,13 +22,13 @@ namespace Compass.Net.Client.Config
         public async Task<ServiceSubscription> ClientSubscribe(ServiceSubscription serviceSubscription)
         {
             // if no compass url is set, then we bail
-            if (_options.CompassUrl == null)
+            if (_options.CompassUri == null)
 			{
 				throw new NoCompassEndpointSetException();
 			}
             var response =
                 await CompassRestClient.SendRequestAsync<ServiceSubscription>(
-                    new Uri(_options.CompassUrl + "/subscribe"), serviceSubscription);
+                    new Uri(_options.CompassUri, "subscribe"), serviceSubscription);
             
             // default timer of 15 seconds
             var heartbeat = new CompassHeartbeat(_options);

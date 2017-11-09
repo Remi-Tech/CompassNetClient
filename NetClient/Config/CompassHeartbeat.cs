@@ -33,7 +33,7 @@ namespace Compass.Net.Client.Config
 
         private async Task RunHeartbeatAsync(ServiceSubscription sub)
         {
-            await Shared.CompassRestClient.SendRequestAsync<ServiceSubscription>(new Uri(_options.CompassUrl + "/heartbeat"), sub);
+            await Shared.CompassRestClient.SendRequestAsync<ServiceSubscription>(new Uri(_options.CompassUri, "heartbeat"), sub);
         }
 
         public void Dispose()

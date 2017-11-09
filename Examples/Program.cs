@@ -12,11 +12,11 @@ namespace Examples
         {
             var subscription = new ServiceSubscription
             {
-                ApplicationToken = new Guid("6a964f1a-b17b-4998-b415-10d7eaea2d7c"),
-                ApplicationUri = new Uri("http://loadbalancer:4000/"),
+                ApplicationToken = new Guid("e6e749e1-ced6-485d-b359-c58900f5becf"),
+                ApplicationUri = new Uri("http://loadbalancer:8080/"),
                 SubscribedEvents = new List<string> { "AddAccount" }
             };
-            var compass = new Client(new ConfigOptions("http://localhost:5000"));
+            var compass = new Client(new ConfigOptions(new Uri("http://localhost:5000/")));
             var task = compass.SubscribeAsync(subscription).Result;
 
             Thread.Sleep(900000);
