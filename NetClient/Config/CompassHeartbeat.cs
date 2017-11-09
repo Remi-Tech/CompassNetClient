@@ -22,6 +22,17 @@ namespace Compass.Net.Client.Config
         {
             // create a timer that will run every x seconds
             GenerateTimer(sub);
+
+            try {
+
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+            }
+
         }
 
         private void GenerateTimer(ServiceSubscription sub)

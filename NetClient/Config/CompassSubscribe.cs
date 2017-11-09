@@ -26,13 +26,23 @@ namespace Compass.Net.Client.Config
 			{
 				throw new NoCompassEndpointSetException();
 			}
-            var response =
+
+            try {
+                
+                var response =
                 await CompassRestClient.SendRequestAsync<ServiceSubscription>(
                     new Uri(_options.CompassUrl + "/subscribe"), serviceSubscription);
-            
-            // default timer of 15 seconds
-            var heartbeat = new CompassHeartbeat(_options);
-            heartbeat.SendBeatAsync(response);
+
+                // default timer of 15 seconds
+                var heartbeat = new CompassHeartbeat(_options);
+                heartbeat.SendBeatAsync(response);
+
+            } catch (Exception e) {
+                Console.WriteLine(e.Message);
+
+                // Re-register every 30 seconds until it succeeds
+
+            }
 
             return response;
         }
