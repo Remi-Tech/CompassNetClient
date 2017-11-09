@@ -28,7 +28,7 @@ namespace Compass.Net.Client
             }
 
             // build the request and send
-            return await CompassRestClient.SendRequestAsync< CompassResult>(new Uri(_options.CompassUrl), compassEvent);
+            return await CompassRestClient.SendRequestAsync<CompassResult>(new Uri(_options.CompassUrl), compassEvent);
         }
     }
 }
