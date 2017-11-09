@@ -36,7 +36,7 @@ namespace Compass.Net.Client.Config
         {
             try
             {
-                await Shared.CompassRestClient.SendRequestAsync<ServiceSubscription>(new Uri(_options.CompassUrl + "/heartbeat"), sub);
+                await Shared.CompassRestClient.SendRequestAsync<ServiceSubscription>(new Uri(_options.CompassUri, "heartbeat"), sub);
             }
             catch (Exception e)
             {

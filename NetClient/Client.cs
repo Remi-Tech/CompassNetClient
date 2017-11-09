@@ -39,7 +39,6 @@ namespace Compass.Net.Client
                 await Task.Delay(30000);
                 return await SubscribeAsync(subscription);
             }
-
         }
 
         // send standard event through compass

@@ -1,14 +1,16 @@
-﻿namespace Compass.Net.Client
+﻿using System;
+
+namespace Compass.Net.Client
 {
     public class ConfigOptions
     {
-        public string CompassUrl { get; }
+        public Uri CompassUri { get; }
 
         public int HeartbeatInterval { get; set; } = 15000;
 
-        public ConfigOptions(string compassUrl)
+        public ConfigOptions(Uri compassUri)
         {
-            CompassUrl = compassUrl;
+            CompassUri = compassUri;
         }
     }
 }

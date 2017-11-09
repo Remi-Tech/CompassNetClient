@@ -22,13 +22,13 @@ namespace Compass.Net.Client
         public async Task<CompassResult> SendRequestAsync(CompassEvent compassEvent)
         {
             // if no compass url is set, then we bail
-            if (_options.CompassUrl == null)
+            if (_options.CompassUri == null)
             {
                 throw new NoCompassEndpointSetException(compassEvent.EventName);
             }
 
             // build the request and send
-            return await CompassRestClient.SendRequestAsync<CompassResult>(new Uri(_options.CompassUrl), compassEvent);
+            return await CompassRestClient.SendRequestAsync<CompassResult>(_options.CompassUri, compassEvent);
         }
     }
 }
