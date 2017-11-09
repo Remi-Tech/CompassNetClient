@@ -6,6 +6,8 @@
 
         public int HeartbeatInterval { get; set; } = 15000;
 
+        public int SubscriptionInterval { get; set; } = 30000;
+
         public ConfigOptions(string compassUrl)
         {
             CompassUrl = compassUrl;

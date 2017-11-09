@@ -23,16 +23,6 @@ namespace Compass.Net.Client.Config
             // create a timer that will run every x seconds
             GenerateTimer(sub);
 
-            try {
-
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-
-            }
-
         }
 
         private void GenerateTimer(ServiceSubscription sub)
@@ -44,7 +34,14 @@ namespace Compass.Net.Client.Config
 
         private async Task RunHeartbeatAsync(ServiceSubscription sub)
         {
-            await Shared.CompassRestClient.SendRequestAsync<ServiceSubscription>(new Uri(_options.CompassUrl + "/heartbeat"), sub);
+            try
+            {
+                await Shared.CompassRestClient.SendRequestAsync<ServiceSubscription>(new Uri(_options.CompassUrl + "/heartbeat"), sub);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public void Dispose()
